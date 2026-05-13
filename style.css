@@ -90,12 +90,18 @@ nav {
 
 /* ---------- HERO ---------- */
 .hero {
-  min-height: 92vh;
+  min-height: auto;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   padding: 4rem 3rem;
   gap: 4rem;
+}
+
+@media (min-width: 901px) {
+  .hero {
+    min-height: 92vh;
+  }
 }
 
 .section-label {
