@@ -102,6 +102,10 @@ nav {
   .hero {
     min-height: 92vh;
   }
+  .hero-visual {
+    height: 500px;
+    min-height: unset;
+  }
 }
 
 .section-label {
@@ -191,7 +195,8 @@ nav {
 /* ---------- HERO VISUAL ---------- */
 .hero-visual {
   position: relative;
-  height: 500px;
+  height: auto;
+  min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -804,7 +809,8 @@ footer span:last-child {
   }
 
   .hero-visual {
-    height: 380px;
+    height: auto;
+    min-height: 300px;
   }
 
   .hero-logo-wrap {
@@ -899,7 +905,8 @@ footer span:last-child {
   }
 
   .hero-visual {
-    height: 300px;
+    height: auto;
+    min-height: 260px;
   }
 
   .hero-logo-wrap {
