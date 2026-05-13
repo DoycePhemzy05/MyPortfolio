@@ -779,7 +779,8 @@ footer span:last-child {
   .hero {
     grid-template-columns: 1fr;
     padding: 2rem 1.5rem;
-    min-height: auto;
+    min-height: unset !important;
+    height: auto !important;
     gap: 2rem;
     text-align: center;
   }
@@ -879,7 +880,8 @@ footer span:last-child {
   .hero {
     padding: 1.5rem 1.2rem 2rem;
     gap: 1.5rem;
-    min-height: auto;
+    min-height: unset !important;
+    height: auto !important;
   }
 
   .hero-text h1 {
