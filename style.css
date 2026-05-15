@@ -489,8 +489,23 @@ nav {
 }
 
 .skill-icon {
-  font-size: 1.6rem;
+  width: 48px;
+  height: 48px;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.skill-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.skill-icon-double img {
+  width: 36px;
+  height: 36px;
 }
 
 .skill-name {
