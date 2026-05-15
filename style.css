@@ -463,6 +463,38 @@ nav {
   margin-top: 1rem;
 }
 
+/* Project Preview Thumbnail */
+.proj-preview {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 110px;
+  height: 80px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid var(--light);
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 24px rgba(43, 43, 43, 0.2);
+  z-index: 10;
+}
+
+.proj-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card:hover .proj-preview {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.project-card:hover .proj-preview {
+  border-color: var(--brown);
+}
+
 /* ---------- SKILLS ---------- */
 .skills-section {
   background: var(--ivory2);
@@ -1025,4 +1057,115 @@ footer span:last-child {
     text-align: center;
     padding: 1.2rem;
   }
+}
+
+/* =============================================
+   LIGHTBOX — FULLSCREEN GLASS
+   ============================================= */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(167, 146, 119, 0.12);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+}
+
+.lightbox-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem;
+  background: rgba(255, 242, 225, 0.05);
+  transform: scale(0.96);
+  transition: transform 0.4s ease;
+}
+
+.lightbox.active .lightbox-content {
+  transform: scale(1);
+}
+
+/* Image wrapper to hold tag inside */
+.lightbox-img-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.lightbox-img {
+  max-width: 75vw;
+  max-height: 68vh;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 242, 225, 0.35);
+  box-shadow:
+    0 40px 100px rgba(43, 43, 43, 0.35),
+    0 0 0 1px rgba(167, 146, 119, 0.2);
+  display: block;
+}
+
+.lightbox-tag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  background: rgba(43, 43, 43, 0.55);
+  padding: 0.3rem 0.9rem;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 242, 225, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox-title {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--ivory);
+  text-align: center;
+  font-weight: 400;
+  text-shadow: 0 2px 12px rgba(43, 43, 43, 0.4);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(43, 43, 43, 0.55);
+  border: 1px solid rgba(255, 242, 225, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ivory);
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.lightbox-close:hover {
+  background: var(--brown);
+  transform: rotate(90deg);
 }

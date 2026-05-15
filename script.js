@@ -69,3 +69,84 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+/* =============================================
+   LIGHTBOX
+   ============================================= */
+
+const lightbox      = document.getElementById('lightbox');
+const lightboxImg   = document.getElementById('lightbox-img');
+const lightboxTitle = document.getElementById('lightbox-title');
+const lightboxTag   = document.getElementById('lightbox-tag');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxOverlay = document.getElementById('lightbox-overlay');
+
+const projectData = [
+  {
+    selector: '.project-card:nth-child(1)',
+    img: 'flpp.jpg',
+    title: 'Sundry Snacks & Classes',
+    tag: 'Graphic Design · Flyer'
+  },
+  {
+    selector: '.project-card:nth-child(2)',
+    img: 'invitation_card.jpg',
+    title: 'Aqiqah Ceremony Invitation',
+    tag: 'Graphic Design · Print'
+  },
+  {
+    selector: '.project-card:nth-child(3)',
+    img: 'weather.jpg',
+    title: 'Live Weather App',
+    tag: 'Web Development'
+  }
+];
+
+let hoverTimer = null;
+
+function openLightbox(img, title, tag) {
+  lightboxImg.src = img;
+  lightboxTitle.textContent = title;
+  lightboxTag.textContent = tag;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+  clearTimeout(hoverTimer);
+}
+
+projectData.forEach(({ selector, img, title, tag }) => {
+  const card = document.querySelector(selector);
+  if (!card) return;
+
+  // Open on click
+  card.addEventListener('click', () => openLightbox(img, title, tag));
+
+  // Open on hover after short delay
+  card.addEventListener('mouseenter', () => {
+    hoverTimer = setTimeout(() => openLightbox(img, title, tag), 600);
+  });
+
+  card.addEventListener('mouseleave', () => {
+    clearTimeout(hoverTimer);
+  });
+});
+
+// Close when clicking the glassmorphism background (outside the image)
+lightbox.addEventListener('click', (e) => {
+  if (!e.target.closest('.lightbox-img-wrap') && !e.target.closest('.lightbox-title')) {
+    closeLightbox();
+  }
+});
+
+// Close on button or Escape key
+lightboxClose.addEventListener('click', (e) => {
+  e.stopPropagation();
+  closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});

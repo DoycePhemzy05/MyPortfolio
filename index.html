@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>DoycePhemzy Graphixs</title>
-<link rel="icon" type="image/png" href="logobg.png"/>
+<link rel="icon" type="image/png" href="logo.png"/>
 <link rel="apple-touch-icon" href="logo.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
@@ -80,6 +80,9 @@
       <div class="proj-desc">A bold, high-impact marketing flyer for a Nigerian food &amp; training business. Designed to attract customers and communicate services clearly at a glance.</div>
       <div class="proj-meta">Client Work · Adobe Photoshop</div>
       <span class="proj-badge">Client Project</span>
+      <div class="proj-preview">
+        <img src="flpp.jpg" alt="Sundry Snacks Flyer Preview"/>
+      </div>
     </div>
     <div class="project-card">
       <div class="proj-num">02</div>
@@ -88,6 +91,9 @@
       <div class="proj-desc">An elegant invitation card with geometric gold borders, watercolour botanicals, and calligraphy. Designed with care and precision for a meaningful family event.</div>
       <div class="proj-meta">Client Work · Adobe Photoshop</div>
       <span class="proj-badge">Client Project</span>
+      <div class="proj-preview">
+        <img src="invitation_card.jpg" alt="Aqiqah Invitation Card Preview"/>
+      </div>
     </div>
     <div class="project-card">
       <div class="proj-num">03</div>
@@ -96,6 +102,9 @@
       <div class="proj-desc">A fully responsive weather app with city search, geolocation, 3-day forecasts, dark mode, CSV export &amp; keyboard shortcuts. Built from scratch in vanilla JS.</div>
       <div class="proj-meta">Personal Project · HTML · CSS · JavaScript</div>
       <span class="proj-badge">Personal Project</span>
+      <div class="proj-preview">
+        <img src="weather.jpg" alt="Weather App Preview"/>
+      </div>
     </div>
     <div class="project-card coming-soon">
       <div class="proj-num">04</div>
@@ -225,9 +234,27 @@
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 DoycePhemzy Graphixs</span>
+  <span>&copy; 2026 DoycePhemzy Graphixs</span>
   <span>Designed &amp; Built by DoycePhemzy ✦</span>
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-overlay" id="lightbox-overlay"></div>
+  <div class="lightbox-content">
+    <div class="lightbox-img-wrap">
+      <div class="lightbox-tag" id="lightbox-tag"></div>
+      <button class="lightbox-close" id="lightbox-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="Project Preview"/>
+    </div>
+    <div class="lightbox-title" id="lightbox-title"></div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
